@@ -1,12 +1,12 @@
 # Online Resources used for Fake News Detector Project
 
 ## Reference Projects
-  * Towards Data Science: https://towardsdatascience.com/full-pipeline-project-python-ai-for-detecting-fake-news-with-nlp-bbb1eec4936d
-  * Github Project: https://github.com/KaiDMML/FakeNewsNet
-  * Bias Visualization: https://www.adfontesmedia.com/interactive-media-bias-chart/#IMBC
-  * Naive Bayes classifier and Top 20 Fake/Real words: https://www.kdnuggets.com/2017/04/machine-learning-fake-news-accuracy.html
-  * Github Project using Logistic Regression & Random Forest Classifiers: https://github.com/nishitpatel01/Fake_News_Detection
-  * UCSB Project Report: https://arxiv.org/pdf/1705.00648.pdf
+  * <a href='https://towardsdatascience.com/full-pipeline-project-python-ai-for-detecting-fake-news-with-nlp-bbb1eec4936d'>Towards Data Science 1st project</a>
+  * <a href='https://towardsdatascience.com/fake-news-detection-with-machine-learning-using-python-3347d9899ad1'>Towards Data Science 2nd project</a>
+  * <a href='https://www.adfontesmedia.com/interactive-media-bias-chart/#IMBC'>Left, Neutral and Right Bias Visualization of News Channels</a>
+  * <a href='https://www.kdnuggets.com/2017/04/machine-learning-fake-news-accuracy.html'>Top 20 Fake/Real words using Naive Bayes classifier</a>
+  * <a href='https://github.com/nishitpatel01/Fake_News_Detection'>Using Logistic Regression & Random Forest Classifiers</a>
+  * <a href='https://arxiv.org/pdf/1705.00648.pdf'>UCSB Project Report</a>
 
 ## Datasets
   * Gossips & Politics Dataset: https://github.com/KaiDMML/FakeNewsNet/tree/master/dataset
