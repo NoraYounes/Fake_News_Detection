@@ -15,6 +15,6 @@ A large set of True and Fake news would be used to create a model which would pr
 - [Top 20 Fake/Real words](https://www.kdnuggets.com/2017/04/machine-learning-fake-news-accuracy.html) using Naive Bayes classifier.
 
 > ## The purpose of this analysis is to answer the following question:
--  Is the article true or false? 
--  What is the accuracy of the predictive model? 
+- Is the article true or false? 
+- What is the accuracy of the predictive model? 
 - Fake news has many sources, where do most of them come from?
