@@ -18,3 +18,9 @@ A large set of True and Fake news would be used to create a model which would pr
 - Is the article true or false? 
 - What is the accuracy of the predictive model? 
 - Fake news has many sources, where do most of them come from?
+
+> ## Communication Protocols
+
+The communication methods selected for this project include:
+
+1. Slack: primary channel for messaging during meetings and is used to share resources/project files 
