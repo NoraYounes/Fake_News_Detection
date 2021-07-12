@@ -9,7 +9,7 @@
   * UCSB <a href='https://arxiv.org/pdf/1705.00648.pdf'>Project Report</a>
 
 ## Datasets
-  * Primary Dataset from <a href='https://www.uvic.ca/engineering/ece/isot/datasets/fake-news/index.php'>University of Victoria</a>. It's credibility can be verified <a href='https://www.impactcybertrust.org/dataset_view?idDataset=952'>here</a>.
+  * **SELECTED** Primary Dataset from <a href='https://www.uvic.ca/engineering/ece/isot/datasets/fake-news/index.php'>University of Victoria</a>. It's credibility can be verified <a href='https://www.impactcybertrust.org/dataset_view?idDataset=952'>here</a>.
   * <a href='https://www.kaggle.com/c/fake-news/data'>Kaggle Dataset</a> aligning with the schema of Victoria's Dataset.
   * Gossips & Politics <a href='https://github.com/KaiDMML/FakeNewsNet/tree/master/dataset'>Dataset</a>
   * <a href='https://github.com/BuzzFeedNews/2018-12-fake-news-top-50/blob/master/data/top_2018.csv'>Facebook Engagement</a> on Fake posts. Can be used for Top 10 analysis.
