@@ -29,4 +29,4 @@ The communication methods selected for this project include:
 2. **Zoom:** video conferencing platform used for team meetings
 3. **Google Docs:** used to document meeting notes and project planning elements
 4. **Whatsapp:** alternative channel used to schedule team meetings and is used for messaging when the team is offline
-
+ 
