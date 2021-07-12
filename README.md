@@ -31,3 +31,4 @@ The communication methods selected for this project include:
 4. **Whatsapp:** alternative channel used to schedule team meetings and is used for messaging when the team is offline
  
     
+   
