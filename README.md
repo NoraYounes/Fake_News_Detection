@@ -1,5 +1,7 @@
 # Fake News Detection 🔎
 
+![WhatsApp Image 2021-07-08 at 10 31 36 AM](https://user-images.githubusercontent.com/78935551/125214201-b1696680-e283-11eb-870c-b1433543ce50.jpeg)
+
 > ## Overview
 Fake news is false or misleading information presented as news. It often has the aim of damaging the reputation of a person or entity, or making money through advertising revenue. There is no fixed definition of a false news story, and, in fact, the term is used more broadly to encompass any type of misinformation, including unintentional and unconscious mechanisms, and also to apply to news unfavourable to one's own personal views.
 
@@ -18,3 +20,11 @@ A large set of True and Fake news would be used to create a model which would pr
 - Is the article true or false? 
 - What is the accuracy of the predictive model? 
 - Fake news has many sources, where do most of them come from?
+
+> ## Communication Protocols
+The communication methods selected for this project include:
+
+1. Slack: primary channel for messaging during meetings and is used to share resources/project files
+2. Zoom: video conferencing platform used for team meetings
+3. Google Docs: used to document meeting notes and project planning elements
+4. Whatsapp: alternative channel used to schedule team meetings and is used for messaging when the team is offline
