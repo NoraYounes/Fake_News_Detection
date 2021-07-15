@@ -33,13 +33,13 @@ The communication methods selected for this project include:
 
 > ## Machine Learning Model
 
-1. Data Preprocessing
+### 1. Data Preprocessing
 (pending)
 
-2. Feature Engineering and Selection
+### 2. Feature Engineering and Selection
 (pending)
 
-3. Training and Testing Sets
+### 3. Training and Testing Sets
 
 The data was split into training and testing sets using sklearn's train_test_split function. The parameters selected include: 
 - X: features (TBD)
@@ -47,11 +47,10 @@ The data was split into training and testing sets using sklearn's train_test_spl
 - test_size: Since the dataset is large, standard set sizes were selected, 80% for training the model and 20% for testing. 
 - random_state: the random_state parameter was included to ensure reproducible results
 
-4. Model
+### 4. Model
+
 **Model 1: Naive Bayes Classifier (NB)**
 The NB model was selected because it is a classifier that uses probabilistic algorithms to generate predictions. It works well with data that originally consists of natural language and it is able to perform analysis efficiently. Another benefit of NB is that it is able to handle irrelevant features. One of the limitations of NB is that it assumes features are completely independent, so the relationship between features is lost, however for this analysis this limitation is acceptable because we are focusing on individual words rather than the combination of words. 
-
-https://monkeylearn.com/blog/practical-explanation-naive-bayes-classifier/
 
 **Model 2: Support Vector Machine (SVM)**
 The SVM model was selected because it is a binary classification model that is able to find the best line or hyperplane to determine if the data belongs to one of two classes. One of the benefits of SVM is the ability to select a kernel, since the data is (linearly separable or not linearly separable), the kernel selected is (linear or rbf). Another benefit of SVM is its ability to accomodate outliers. A limitation of SVM is that it can take time to train on larger datasets.
