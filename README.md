@@ -49,13 +49,13 @@ The primary dataset from the University of Victoria includes two csv files, a Fa
 ### 2. Feature Engineering and Selection
 The dataset data type consist of natural language, thus several Natural Language Processing (NLP) methods were applied to generate numerical features that can be used in the machine learning model. 
 
-1. Converting to Lowercase, Removing Punctuation and Stopwords:
+1. **Converting to Lowercase, Removing Punctuation and Stopwords**:
 An additional preprocessing step was taken to help reduce noise in the data to help in the NLP process and so that features focus on the words. A function was created to convert the title and text data to lowercase and remove punctuation such as apostrophes. StopWords such as 'the' were also removed for the title and text data using nltk's stopwords library. 
 
-2. Word Count
+2. **Word Count**:
 The word count for title, text and article (title+text) will be used as a feature as the length of the article may indicate whether its true or false. 
 
-3. Tokenized Count
+3. **Tokenized Count**
 Tokenization was applied on the title, text and article to gain a different type of insight through the words being split into meaningful units. The feature would consist of the number of tokens per title, text and article. 
 
 4. **Part-of-Speech Tagging (POS-tag)**: 
