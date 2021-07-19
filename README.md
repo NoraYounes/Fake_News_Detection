@@ -34,7 +34,17 @@ The communication methods selected for this project include:
 > ## Machine Learning Model
 
 ### 1. Data Preprocessing
-(pending)
+The primary dataset from the University of Victoria includes two csv files, a Fake.csv that consists of articles deemed Fake and a True.csv for True articles. Each dataset has 4 columns which include the article title, text, subject and date. The Fake dataset has 23,481 records with 6 types of subjects (News, left-news, politics, Government News, Middle-east and US_News) and the True dataset has 21,417 records with 2 types of subjects (politicsNews and worldnews). After the initial data exploration, the following steps were taken to preprocess the data:
+
+1. Delete articles with blank 'text' values
+2. Drop duplicate records
+3. Organize 'subjects' into two categories, US News and World News
+    - In order to keep the subjects consistent, we reduced the 6 Fake subjects into the 2 categories, to match the True subjects and renamed them. 
+    - The Fake data has a lower number of World News (742) than US News (16,712), compared to the True data with US News (11,202) and World News at (9,989). At this stage, we decided that 742 records is sufficient and to keep the data as is because the primary goal is to predict Fake vs. True articles. 
+4. Drop the 'date' column: 
+    - Since both the true and fake article records were collected from 2016 to 2017, we decided to eliminate the date column to focus on more insightful data. 
+5. Add label columns with a value of '0' for True and '1' for Fake
+6. Merge the True and Fake data into a one DataFrame
 
 ### 2. Feature Engineering and Selection
 (pending)
@@ -42,7 +52,7 @@ The communication methods selected for this project include:
 ### 3. Training and Testing Sets
 
 The data was split into training and testing sets using sklearn's train_test_split function. The parameters selected include: 
-- X: features (TBD)
+- X: features (pending)
 - y: target (label true or fake)
 - test_size: Since the dataset is large, standard set sizes were selected, 80% for training the model and 20% for testing. 
 - random_state: the random_state parameter was included to ensure reproducible results
