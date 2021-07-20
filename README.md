@@ -34,7 +34,7 @@ The communication methods selected for this project include:
 > ## Machine Learning Model
 
 ### 1. Data Preprocessing
-(pending)
+(pending completion)
 
 ### 2. Feature Engineering and Selection
 (pending)
