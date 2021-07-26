@@ -62,7 +62,7 @@ Tokenization was applied on the title, text and article to gain a different type
 POS-tag was used on the text data to tag words into different types/tags such as adjectives, adverbs, preposition, nouns and verbs. The sum of each tag in an article will be used as a feature based on the assumption that the type of word can predict whether an article is true or fake. For example, fake articles may use more verbs than true articles. The POS-tag features were normalized to a scale between 0-100. 
 
 5. **Encoding Categorical Variables**: 
-The subject column was encoded using the get_dummies() function where US News = 1 and World News = 0. 
+The subject column was encoded using the get_dummies() function where US News and World News were turned into indicator columns. 
 
 
 #### Summary of Features:
