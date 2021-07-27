@@ -22,14 +22,12 @@ A large set of True and Fake news would be used to create a model which would pr
 - Fake news has many sources, where do most of them come from?
 
 > ## Communication Protocols
-
 The communication methods selected for this project include:
 
-1. **Slack:** primary channel for messaging during meetings and is used to share resources/project files
-2. **Zoom:** video conferencing platform used for team meetings
-3. **Google Docs:** used to document meeting notes and project planning elements
-4. **Whatsapp:** alternative channel used to schedule team meetings and is used for messaging when the team is offline
- 
+1. **Slack**: primary channel for messaging during meetings and is used to share resources/project files
+2. **Zoom**: video conferencing platform used for team meetings
+3. **Google Docs**: used to document meeting notes and project planning elements
+4. **Whatsapp**: alternative channel used to schedule team meetings and is used for messaging when the team is offline
 
 > ## Machine Learning Model
 
@@ -39,28 +37,97 @@ The primary dataset from the University of Victoria includes two csv files, a Fa
 1. Delete articles with blank 'text' values
 2. Drop duplicate records
 3. Organize 'subjects' into two categories, US News and World News
-    - In order to keep the subjects consistent, we reduced the 6 Fake subjects into the 2 categories, to match the True subjects and renamed them. 
-    - The Fake data has a lower number of World News (742) than US News (16,712), compared to the True data with US News (11,202) and World News at (9,989). At this stage, we decided that 742 records is sufficient and to keep the data as is because the primary goal is to predict Fake vs. True articles. 
+- In order to keep the subjects consistent, we reduced the 6 Fake subjects into the 2 categories, to match the True subjects and renamed them. 
+- The Fake data has a lower number of World News (742) than US News (16,712), compared to the True data with US News (11,202) and World News at (9,989). At this stage, we decided that 742 records is sufficient and to keep the data as is because the primary goal is to predict Fake vs. True articles. 
 4. Drop the 'date' column: 
-    - Since both the true and fake article records were collected from 2016 to 2017, we decided to eliminate the date column to focus on more insightful data. 
+- Since both the true and fake article records were collected from 2016 to 2017, we decided to eliminate the date column to focus on more insightful data. 
 5. Add label columns with a value of '0' for True and '1' for Fake
-6. Merge the True and Fake data into a one DataFrame
+6. Merge the True and Fake data into one DataFrame
 
 ### 2. Feature Engineering and Selection
-(pending)
+The dataset data type consist of natural language, thus several Natural Language Processing (NLP) methods were applied to generate features with numerical values that can be used in the machine learning model. 
+
+1. **Converting to Lowercase, Removing Punctuation and Stopwords**:
+An additional preprocessing step was taken to help reduce noise in the data to help in the NLP process and so that features focus on the words. 
+- Lowercase and Punctuation Removal: A function was created to convert the title and text data to lowercase and remove punctuation such as apostrophes. 
+- StopWords were also removed for the title and text data using nltk's stopwords library. 
+
+2. **Word Count**:
+The word count for title, text and article (title+text) will be used as a feature as the length of the article may indicate whether its true or false. 
+
+3. **Tokenized Count**
+Tokenization was applied on the title, text and article to gain a different type of insight through the words being split into meaningful units. The features would consist of the number of tokens per title, text and article. 
+
+4. **Part-of-Speech Tagging (POS-tag) & Normalization**: 
+POS-tag was used on the text data to tag words into different types/tags such as adjectives, adverbs, preposition, nouns and verbs. The sum of each tag in an article will be used as a feature based on the assumption that the type of word can predict whether an article is true or fake. For example, fake articles may use more verbs than true articles. The POS-tag features were normalized to a scale between 0-100. 
+
+5. **Encoding Categorical Variables**: 
+The subject column was encoded using the get_dummies() function where US News and World News were turned into indicator columns. 
+
+
+#### Summary of Features:
+1. Word Count:
+- Title Word Count
+- Text Word Count
+- Article Word Count
+
+2. Tokenized Count:
+- Title Tokenized Count
+- Text Tokenized Count 
+- Article Tokenized Count
+
+3. Subject
+- US News 
+- World News 
+
+4. POS-tag:
+- CC (coordinating conjunction)
+- CD (cardinal digit)
+- DT (determiner)
+- EX (existential there (like: “there is” … think of it like “there exists”))
+- FW (foreign word)
+- IN (preposition/subordinating conjunction)
+- JJ (adjective)
+- JJR (adjective, comparative)
+- JJS (adjective, superlative)
+- LS (list item marker)
+- MD (modal)
+- NN (noun, singular)
+- NNS (noun plural)
+- NNP (proper noun, singular)
+- NNPS (proper noun, plural)
+- PDT (predeterminer)
+- POS (possessive ending)
+- PRP (personal pronoun)
+- PRP$ (possessive pronoun)
+- RB (adverb)
+- RBR (adverb, comparative)
+- RBS (adverb, superlative)
+- RP (particle)
+- TO (‘to’)
+- UH (interjection)
+- VB (verb, base form)
+- VBD (verb, past tense)
+- VBG (verb, gerund/present participle)
+- VBN (verb, past participle)
+- VBP (verb, non-3rd person singular present)
+- VBZ (verb, 3rd person singular present)
+- WDT (wh-determiner)
+- WP (wh-pronoun)
+- WP$ (possessive wh-pronoun)
+- WRB (wh-adverb)
 
 ### 3. Training and Testing Sets
-
 The data was split into training and testing sets using sklearn's train_test_split function. The parameters selected include: 
-- X: features (pending)
-- y: target (label true or fake)
+- X: Summary of Features (listed above)
+- y: Label
 - test_size: Since the dataset is large, standard set sizes were selected, 80% for training the model and 20% for testing. 
 - random_state: the random_state parameter was included to ensure reproducible results
 
-### 4. Model
+### 4. Machine Learning Model
 
 **Model 1: Naive Bayes Classifier (NB)**
 The NB model was selected because it is a classifier that uses probabilistic algorithms to generate predictions. It works well with data that originally consists of natural language and it is able to perform analysis efficiently. Another benefit of NB is that it is able to handle irrelevant features. One of the limitations of NB is that it assumes features are completely independent, so the relationship between features is lost, however for this analysis this limitation is acceptable because we are focusing on individual words rather than the combination of words. 
 
 **Model 2: Support Vector Machine (SVM)**
-The SVM model was selected because it is a binary classification model that is able to find the best line or hyperplane to determine if the data belongs to one of two classes. One of the benefits of SVM is the ability to select a kernel, since the data is (linearly separable or not linearly separable), the kernel selected is (linear or rbf). Another benefit of SVM is its ability to accomodate outliers. A limitation of SVM is that it can take time to train on larger datasets.
+The SVM model was selected because it is a binary classification model that is able to find the best line or hyperplane to determine if the data belongs to one of two classes. One of the benefits of SVM is its ability to accomodate outliers. A limitation of SVM is that it can take time to train on larger datasets.
