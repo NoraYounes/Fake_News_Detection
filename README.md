@@ -130,10 +130,10 @@ The NB model was selected because it is a classifier that uses probabilistic alg
 The SVM model was selected because it is a binary classification model that is able to find the best line or hyperplane to determine if the data belongs to one of two classes. One of the benefits of SVM is its ability to accomodate outliers. A limitation of SVM is that it can take time to train on larger datasets.
 
 
-## 5. Model Training
+### 5. Model Training
 (pending)
 
-## 6. Model Validation 
+### 6. Model Validation 
 (pending)
 
 > ## Dashboard 
