@@ -13,7 +13,7 @@ from sklearn.preprocessing import StandardScaler
 
 # Read Test Data into a Dataframe
 root = os.path.dirname(os.path.abspath(__file__))  
-test_file_path = os.path.join(root, 'test_data_1_article.csv')
+test_file_path = os.path.join(root, 'test_data_multiple.csv')
 article_df = pd.read_csv(test_file_path)
 
 # Natural Language Processing
@@ -63,7 +63,7 @@ features_df = pd.concat([
     ndf.drop('sum',axis=1)
     ], axis=1)
 
-# Add Missing Required Features
+# Handle Missing Required Features
 reqd_features = ['title_count', 'text_count', 'title_tokenized_count',
     'text_tokenized_count', 'US News', 'World News', 'JJ', 'NN', 'VBZ',
     'RP', 'VBG', 'VBP', 'DT', 'RB', 'VB', 'CC', 'PRP', 'IN', 'VBD', 'TO',
