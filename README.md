@@ -21,14 +21,6 @@ A large set of True and Fake news would be used to create a model which would pr
 - What is the accuracy of the predictive model? 
 - Fake news has many sources, where do most of them come from?
 
-> ## Communication Protocols
-The communication methods selected for this project include:
-
-1. **Slack**: primary channel for messaging during meetings and is used to share resources/project files
-2. **Zoom**: video conferencing platform used for team meetings
-3. **Google Docs**: used to document meeting notes and project planning elements
-4. **Whatsapp**: alternative channel used to schedule team meetings and is used for messaging when the team is offline
-
 > ## Machine Learning Model
 
 ### 1. Data Preprocessing
@@ -47,40 +39,37 @@ The primary dataset from the University of Victoria includes two csv files, a Fa
 ### 2. Feature Engineering and Selection
 The dataset data type consist of natural language, thus several Natural Language Processing (NLP) methods were applied to generate features with numerical values that can be used in the machine learning model. 
 
-1. **Converting to Lowercase, Removing Punctuation and Stopwords**:
+**1. Converting to Lowercase, Removing Punctuation and Stopwords:**
 An additional preprocessing step was taken to help reduce noise in the data to help in the NLP process and so that features focus on the words. 
 - Lowercase and Punctuation Removal: A function was created to convert the title and text data to lowercase and remove punctuation such as apostrophes. 
 - StopWords were also removed for the title and text data using nltk's stopwords library. 
 
-2. **Word Count**:
-The word count for title, text and article (title+text) will be used as a feature as the length of the article may indicate whether its true or false. 
+**2. Word Count:**
+The word count for title and text will be used as a feature as the length may indicate whether its true or false. 
 
-3. **Tokenized Count**
-Tokenization was applied on the title, text and article to gain a different type of insight through the words being split into meaningful units. The features would consist of the number of tokens per title, text and article. 
+**3. Tokenized Count:**
+Tokenization was applied on the title and text data to gain a different type of insight through the words being split into meaningful units. The features would consist of the number of tokens per title and title.
 
-4. **Part-of-Speech Tagging (POS-tag) & Normalization**: 
+**4. Part-of-Speech Tagging (POS-tag) & Normalization:** 
 POS-tag was used on the text data to tag words into different types/tags such as adjectives, adverbs, preposition, nouns and verbs. The sum of each tag in an article will be used as a feature based on the assumption that the type of word can predict whether an article is true or fake. For example, fake articles may use more verbs than true articles. The POS-tag features were normalized to a scale between 0-100. 
 
-5. **Encoding Categorical Variables**: 
+**5. Encoding Categorical Variables:** 
 The subject column was encoded using the get_dummies() function where US News and World News were turned into indicator columns. 
 
-
 #### Summary of Features:
-1. Word Count:
+1. **Word Count:**
 - Title Word Count
 - Text Word Count
-- Article Word Count
 
-2. Tokenized Count:
+2. **Tokenized Count:**
 - Title Tokenized Count
 - Text Tokenized Count 
-- Article Tokenized Count
 
-3. Subject
+3. **Subject:**
 - US News 
 - World News 
 
-4. POS-tag:
+4. **POS-tag:**
 - CC (coordinating conjunction)
 - CD (cardinal digit)
 - DT (determiner)
@@ -131,3 +120,22 @@ The NB model was selected because it is a classifier that uses probabilistic alg
 
 **Model 2: Support Vector Machine (SVM)**
 The SVM model was selected because it is a binary classification model that is able to find the best line or hyperplane to determine if the data belongs to one of two classes. One of the benefits of SVM is its ability to accomodate outliers. A limitation of SVM is that it can take time to train on larger datasets.
+
+
+### 5. Model Training
+(pending)
+
+### 6. Model Validation 
+(pending)
+
+> ## Dashboard 
+
+**1. Tool Selection:**
+
+**2. Interactive Elements:** 
+
+**3. Link to Dashboard:**
+
+
+> ## Presentation
+**Link to Presentation:**
