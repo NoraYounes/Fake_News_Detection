@@ -146,7 +146,7 @@ The svm_model was trained using the linear kernel.
 1. **GaussianNB (gb_model)**
 The  image below shows the gb_model validation results. The accuracy was 88.8%. The confusion matrix shows that the model had 3837 True Positives (true article as true), 2853 True Negatives (fake articles as fake), 431 False Negatives (true articles as fake) and 410 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.90 for True classification and 0.87 for Fake classification. 
 
-<<img width="546" alt="gb_validation" src="https://user-images.githubusercontent.com/78664640/128411468-384d8d8e-6b89-4f36-929d-657986190147.png">
+<img width="546" alt="gb_validation" src="https://user-images.githubusercontent.com/78664640/128411468-384d8d8e-6b89-4f36-929d-657986190147.png">
 
 2. **MultinomialNB (nb_model)**
 The  image below shows the gb_model validation results. The accuracy was 95.9%. The confusion matrix shows that the model had 387 True Positives (true article as true), 335 True Negatives (fake articles as fake), 11 False Negatives (true articles as fake) and 20 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.96 for both True and False classification. 
