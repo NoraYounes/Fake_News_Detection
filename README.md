@@ -133,33 +133,33 @@ The SVM model was selected because it is a binary classification model that is a
 **Model 1: Naive Bayes Classifier (NB)**
 Two different NB models were trained using different types of NB algorithms:
 
-**1. GaussianNB (gb_model)**
-The gb_model was trained using the GaussianNB algorithm on the X_train and y_train datasets. 
+1. **GaussianNB (gb_model)**
+The gb_model was trained using the GaussianNB algorithm. 
 
-**2. MultinomialNB (nb_model)**
-The nb_model was trained using the MultinomialNB algorithm on the Vectorized Word Count (X_train_count) and y_train. 
-
-**Model 2: Support Vector Machine (svm_model)**
-The svm_model was trained using the linear kernel on the X_train and y_train datasets. 
-
-### 6. Model Validation 
-**Model 1: Naive Bayes Classifier (NB)**
-
-**1. GaussianNB (gb_model)**
-The  image below shows the gb_model validation results. The accuracy was 88.8%. The confusion matrix shows that the model had 3837 true positives and 2853 true negatives meaning it was able to predict true articles as true or fake articles as fake correctly. The f1-score further supports the performance of the model with 0.90 for True classification and 0.87 for Fake classification. 
-<img width="546" alt="gb_validation" src="https://user-images.githubusercontent.com/78664640/128403406-7febf95e-ce5c-4d78-8125-798bba1dbc13.png">
-
-**2. MultinomialNB (nb_model)**
-
-
+2. **MultinomialNB (nb_model)**
+The nb_model only used the Vectorized Word Count as the X features. The results of the CountVectorizer on the text data generates a significant number of features/columns, so in order to run the nb_model, 10% of the articles dataset was used due to processing limitations. The nb_model was trained using the MultinomialNB algorithm. 
 
 **Model 2: Support Vector Machine (SVM)**
-The  image below shows the SVM model validation results. The accuracy was 92.5%. The confusion matrix has the same results at the gb_model. The f1-score is higher for the svm model compared to the gb_model with 0.94 for True classification and 0.91 for Fake classification. 
+The svm_model was trained using the linear kernel. 
 
-<img width="544" alt="svm_validation" src="https://user-images.githubusercontent.com/78664640/128403432-e0a50236-0cd1-467f-aa73-21e321e02e23.png">
+### 6. Model Validation 
+1. **GaussianNB (gb_model)**
+The  image below shows the gb_model validation results. The accuracy was 88.8%. The confusion matrix shows that the model had 3837 True Positives (true article as true), 2853 True Negatives (fake articles as fake), 431 False Negatives (true articles as fake) and 410 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.90 for True classification and 0.87 for Fake classification. 
+
+<<img width="546" alt="gb_validation" src="https://user-images.githubusercontent.com/78664640/128411468-384d8d8e-6b89-4f36-929d-657986190147.png">
+
+2. **MultinomialNB (nb_model)**
+The  image below shows the gb_model validation results. The accuracy was 95.9%. The confusion matrix shows that the model had 387 True Positives (true article as true), 335 True Negatives (fake articles as fake), 11 False Negatives (true articles as fake) and 20 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.96 for both True and False classification. 
+
+![nb_validation](https://user-images.githubusercontent.com/78664640/128411470-875a6bf8-ddea-4d85-a211-95e44478c32c.png)
+
+3. **Support Vector Machine (svm_model)**
+The  image below shows the SVM model validation results. The accuracy was 92.5%. The confusion matrix shows that the model had 4068 True Positives (true article as true), 2898 True Negatives (fake articles as fake), 200 False Negatives (true articles as fake) and 365 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.94 for True classification and 0.91 for Fake classification. 
+
+![svm_validation](https://user-images.githubusercontent.com/78664640/128411473-2dee3398-2e54-445a-b8db-dae2b09ac3d7.png)
 
 ### 7. Model Selection
-
+The gb_model and svm_model used the engineered features (excluding the vectorized word count) and scaling, while the nb_model only used the vectorized word count as a feature. During the model integration into the dashboard, both the gb_model and svm_model resulted in issues due to the regex applied during the NLP process ans scaling in the machine learning testing, thus the final model selected for the dashboard was the nb_model. Ultimately, the nb_model had the highest accuracy and easiest implementation into the dashboard. 
 
 > ## Dashboard 
 [Click here to check out our Dashboard](http://fakefactdetector.herokuapp.com/)
