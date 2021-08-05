@@ -41,6 +41,7 @@ The dataset data type consist of natural language, thus several Natural Language
 
 **1. Converting to Lowercase, Removing Punctuation and Stopwords:**
 An additional preprocessing step was taken to help reduce noise in the data to help in the NLP process and so that features focus on the words. 
+- Replacing U.S and U.S. with USA in title and text data  
 - Lowercase and Punctuation Removal: A function was created to convert the title and text data to lowercase and remove punctuation such as apostrophes. 
 - StopWords were also removed for the title and text data using nltk's stopwords library. 
 
@@ -55,6 +56,10 @@ POS-tag was used on the text data to tag words into different types/tags such as
 
 **5. Encoding Categorical Variables:** 
 The subject column was encoded using the get_dummies() function where US News and World News were turned into indicator columns. 
+
+**6. CountVectorizer:**
+The CountVectorizer was used on the text data to generate a feature which consists of the occurence and tokenization of each word per article. 
+
 
 #### Summary of Features:
 1. **Word Count:**
@@ -106,9 +111,12 @@ The subject column was encoded using the get_dummies() function where US News an
 - WP$ (possessive wh-pronoun)
 - WRB (wh-adverb)
 
+5. **CountVectorizer**
+- Vectorized Word Count 
+
 ### 3. Training and Testing Sets
 The data was split into training and testing sets using sklearn's train_test_split function. The parameters selected include: 
-- X: Summary of Features (listed above)
+- X: Summary of Features (listed above, not including the Vectorized Word Count)
 - y: Label
 - test_size: Since the dataset is large, standard set sizes were selected, 80% for training the model and 20% for testing. 
 - random_state: the random_state parameter was included to ensure reproducible results
@@ -121,21 +129,41 @@ The NB model was selected because it is a classifier that uses probabilistic alg
 **Model 2: Support Vector Machine (SVM)**
 The SVM model was selected because it is a binary classification model that is able to find the best line or hyperplane to determine if the data belongs to one of two classes. One of the benefits of SVM is its ability to accomodate outliers. A limitation of SVM is that it can take time to train on larger datasets.
 
-
 ### 5. Model Training
-(pending)
+**Model 1: Naive Bayes Classifier (NB)**
+Two different NB models were trained using different types of NB algorithms:
+
+**1. GaussianNB (gb_model)**
+The gb_model was trained using the GaussianNB algorithm on the X_train and y_train datasets. 
+
+**2. MultinomialNB (nb_model)**
+The nb_model was trained using the MultinomialNB algorithm on the Vectorized Word Count (X_train_count) and y_train. 
+
+**Model 2: Support Vector Machine (svm_model)**
+The svm_model was trained using the linear kernel on the X_train and y_train datasets. 
 
 ### 6. Model Validation 
-(pending)
+**Model 1: Naive Bayes Classifier (NB)**
+
+**1. GaussianNB (gb_model)**
+The  image below shows the gb_model validation results. The accuracy was 88.8%. The confusion matrix shows that the model had 3837 true positives and 2853 true negatives meaning it was able to predict true articles as true or fake articles as fake correctly. The f1-score further supports the performance of the model with 0.90 for True classification and 0.87 for Fake classification. 
+<img width="546" alt="gb_validation" src="https://user-images.githubusercontent.com/78664640/128403406-7febf95e-ce5c-4d78-8125-798bba1dbc13.png">
+
+**2. MultinomialNB (nb_model)**
+
+
+
+**Model 2: Support Vector Machine (SVM)**
+The  image below shows the SVM model validation results. The accuracy was 92.5%. The confusion matrix has the same results at the gb_model. The f1-score is higher for the svm model compared to the gb_model with 0.94 for True classification and 0.91 for Fake classification. 
+
+<img width="544" alt="svm_validation" src="https://user-images.githubusercontent.com/78664640/128403432-e0a50236-0cd1-467f-aa73-21e321e02e23.png">
+
+### 7. Model Selection
+
 
 > ## Dashboard 
-
-**1. Tool Selection:**
-
-**2. Interactive Elements:** 
-
-**3. Link to Dashboard:**
+[Click here to check out our Dashboard](http://fakefactdetector.herokuapp.com/)
 
 
 > ## Presentation
-**Link to Presentation:**
+[Click here to check out our Presentation](https://docs.google.com/presentation/d/1oDIxY25KyXxs1QhZghPIj5Z90Xhdd0Rf4pUN0oJYf6U/edit?usp=sharing)
