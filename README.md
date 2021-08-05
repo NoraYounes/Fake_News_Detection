@@ -159,7 +159,7 @@ The  image below shows the SVM model validation results. The accuracy was 92.5%.
 ![svm_validation](https://user-images.githubusercontent.com/78664640/128411473-2dee3398-2e54-445a-b8db-dae2b09ac3d7.png)
 
 ### 7. Model Selection
-The gb_model and svm_model used the engineered features (excluding the vectorized word count) and scaling, while the nb_model only used the vectorized word count as a feature. During the model integration into the dashboard, both the gb_model and svm_model resulted in issues due to the regex applied during the NLP process ans scaling in the machine learning testing, thus the final model selected for the dashboard was the nb_model. Ultimately, the nb_model had the highest accuracy and easiest implementation into the dashboard. 
+The gb_model and svm_model used the engineered features (excluding the vectorized word count) and scaling, while the nb_model only used the vectorized word count as a feature. During the model integration into the dashboard, both the gb_model and svm_model resulted in issues due to the regex applied during the NLP process and scaling in the machine learning testing, thus the final model selected for the dashboard was the nb_model. Ultimately, the nb_model had the highest accuracy and easiest implementation into the dashboard. 
 
 > ## Dashboard 
 [Click here to check out our Dashboard](https://fakefactdetector.herokuapp.com/?)
