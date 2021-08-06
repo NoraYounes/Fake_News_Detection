@@ -41,6 +41,7 @@ The dataset data type consist of natural language, thus several Natural Language
 
 **1. Converting to Lowercase, Removing Punctuation and Stopwords:**
 An additional preprocessing step was taken to help reduce noise in the data to help in the NLP process and so that features focus on the words. 
+- Replacing U.S and U.S. with USA in title and text data  
 - Lowercase and Punctuation Removal: A function was created to convert the title and text data to lowercase and remove punctuation such as apostrophes. 
 - StopWords were also removed for the title and text data using nltk's stopwords library. 
 
@@ -55,6 +56,10 @@ POS-tag was used on the text data to tag words into different types/tags such as
 
 **5. Encoding Categorical Variables:** 
 The subject column was encoded using the get_dummies() function where US News and World News were turned into indicator columns. 
+
+**6. CountVectorizer:**
+The CountVectorizer was used on the text data to generate a feature which consists of the occurence and tokenization of each word per article. 
+
 
 #### Summary of Features:
 1. **Word Count:**
@@ -106,9 +111,12 @@ The subject column was encoded using the get_dummies() function where US News an
 - WP$ (possessive wh-pronoun)
 - WRB (wh-adverb)
 
+5. **CountVectorizer**
+- Vectorized Word Count 
+
 ### 3. Training and Testing Sets
 The data was split into training and testing sets using sklearn's train_test_split function. The parameters selected include: 
-- X: Summary of Features (listed above)
+- X: Summary of Features (listed above, not including the Vectorized Word Count)
 - y: Label
 - test_size: Since the dataset is large, standard set sizes were selected, 80% for training the model and 20% for testing. 
 - random_state: the random_state parameter was included to ensure reproducible results
@@ -121,21 +129,41 @@ The NB model was selected because it is a classifier that uses probabilistic alg
 **Model 2: Support Vector Machine (SVM)**
 The SVM model was selected because it is a binary classification model that is able to find the best line or hyperplane to determine if the data belongs to one of two classes. One of the benefits of SVM is its ability to accomodate outliers. A limitation of SVM is that it can take time to train on larger datasets.
 
-
 ### 5. Model Training
-(pending)
+**Model 1: Naive Bayes Classifier (NB)**
+Two different NB models were trained using different types of NB algorithms:
+
+1. **GaussianNB (gb_model)**
+The gb_model was trained using the GaussianNB algorithm. 
+
+2. **MultinomialNB (nb_model)**
+The nb_model only used the Vectorized Word Count as the X features. The results of the CountVectorizer on the text data generates a significant number of features/columns, so in order to run the nb_model, 10% of the articles dataset was used due to processing limitations. The nb_model was trained using the MultinomialNB algorithm. 
+
+**Model 2: Support Vector Machine (SVM)**
+The svm_model was trained using the linear kernel. 
 
 ### 6. Model Validation 
-(pending)
+1. **GaussianNB (gb_model)**
+The  image below shows the gb_model validation results. The accuracy was 88.8%. The confusion matrix shows that the model had 3837 True Positives (true article as true), 2853 True Negatives (fake articles as fake), 431 False Negatives (true articles as fake) and 410 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.90 for True classification and 0.87 for Fake classification. 
+
+<img width="546" alt="gb_validation" src="https://user-images.githubusercontent.com/78664640/128411468-384d8d8e-6b89-4f36-929d-657986190147.png">
+
+2. **MultinomialNB (nb_model)**
+The  image below shows the gb_model validation results. The accuracy was 95.9%. The confusion matrix shows that the model had 387 True Positives (true article as true), 335 True Negatives (fake articles as fake), 11 False Negatives (true articles as fake) and 20 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.96 for both True and False classification. 
+
+![nb_validation](https://user-images.githubusercontent.com/78664640/128411470-875a6bf8-ddea-4d85-a211-95e44478c32c.png)
+
+3. **Support Vector Machine (svm_model)**
+The  image below shows the SVM model validation results. The accuracy was 92.5%. The confusion matrix shows that the model had 4068 True Positives (true article as true), 2898 True Negatives (fake articles as fake), 200 False Negatives (true articles as fake) and 365 False Positives (fake articles as true). The f1-score further supports the performance of the model with 0.94 for True classification and 0.91 for Fake classification. 
+
+![svm_validation](https://user-images.githubusercontent.com/78664640/128411473-2dee3398-2e54-445a-b8db-dae2b09ac3d7.png)
+
+### 7. Model Selection
+The gb_model and svm_model used the engineered features (excluding the vectorized word count) and scaling, while the nb_model only used the vectorized word count as a feature. During the model integration into the dashboard, both the gb_model and svm_model resulted in issues due to the regex applied during the NLP process and scaling in the machine learning testing, thus the final model selected for the dashboard was the nb_model. Ultimately, the nb_model had the highest accuracy and easiest implementation into the dashboard. 
 
 > ## Dashboard 
-
-**1. Tool Selection:**
-
-**2. Interactive Elements:** 
-
-**3. Link to Dashboard:**
+[Check Out the Dashboard](https://fakefactdetector.herokuapp.com/?)
 
 
 > ## Presentation
-**Link to Presentation:**
+[Check Out our Presentation](https://docs.google.com/presentation/d/1oDIxY25KyXxs1QhZghPIj5Z90Xhdd0Rf4pUN0oJYf6U/edit?usp=sharing)
